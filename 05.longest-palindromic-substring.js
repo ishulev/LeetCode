@@ -3,7 +3,6 @@
  * @return {string}
  */
 var longestPalindrome = function (s) {
-    console.log('init');
     if (s.length === 1) {
         return s;
     }
@@ -13,21 +12,19 @@ var longestPalindrome = function (s) {
         return arrayFromString.indexOf(item, index + 1) !== -1;
     });
 
-    console.log('firstArray');
-
     arrayWithRepeatingChars = arrayWithRepeatingChars.filter(function (item, index) {
         const nextItemIndex = arrayWithRepeatingChars.indexOf(item, index + 1);
         return nextItemIndex === -1;
     });
-
-    console.log('filteredArray');
 
     arrayWithRepeatingChars.forEach(function (item) {
         let firstIndex = arrayFromString.indexOf(item);
         let finalIndex = arrayFromString.lastIndexOf(item);
         console.log('beforeLoop');
         while (firstIndex > -1 && firstIndex < finalIndex) {
+            console.log('outerLoopStart');
             while (finalIndex > -1 && finalIndex !== firstIndex) {
+                console.log('innerLoopStart');
                 const possiblePolindrome = arrayFromString.slice(firstIndex, finalIndex + 1);
                 let oddLength = true;
                 if (possiblePolindrome.length % 2) {
