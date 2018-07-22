@@ -3,6 +3,7 @@
  * @return {string}
  */
 var longestPalindrome = function (s) {
+    console.log('init');
     if (s.length === 1) {
         return s;
     }
@@ -12,14 +13,19 @@ var longestPalindrome = function (s) {
         return arrayFromString.indexOf(item, index + 1) !== -1;
     });
 
+    console.log('firstArray');
+
     arrayWithRepeatingChars = arrayWithRepeatingChars.filter(function (item, index) {
         const nextItemIndex = arrayWithRepeatingChars.indexOf(item, index + 1);
         return nextItemIndex === -1;
     });
 
+    console.log('filteredArray');
+
     arrayWithRepeatingChars.forEach(function (item) {
         let firstIndex = arrayFromString.indexOf(item);
         let finalIndex = arrayFromString.lastIndexOf(item);
+        console.log('beforeLoop');
         while (firstIndex > -1 && firstIndex < finalIndex) {
             while (finalIndex > -1 && finalIndex !== firstIndex) {
                 const possiblePolindrome = arrayFromString.slice(firstIndex, finalIndex + 1);
@@ -42,6 +48,7 @@ var longestPalindrome = function (s) {
             firstIndex = arrayFromString.indexOf(item, firstIndex + 1);
             finalIndex = arrayFromString.lastIndexOf(item);
         }
+        console.log('afterLoop');
     });
     return palindromeArray.join('') || arrayFromString[0];
 };
@@ -50,5 +57,5 @@ var longestPalindrome = function (s) {
 // console.log(longestPalindrome('cbbd'));
 // console.log(longestPalindrome('bb'));
 // console.log(longestPalindrome('babad'));
-console.log(longestPalindrome('abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa'));
+longestPalindrome('abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa');
 
