@@ -1,0 +1,23 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01.two-sum.js",
+  "dependencies": {
+    "jest": "^23.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishulev/LeetCode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ishulev/LeetCode/issues"
+  },
+  "homepage": "https://github.com/ishulev/LeetCode#readme"
+}
