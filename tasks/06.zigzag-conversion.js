@@ -5,11 +5,14 @@
  */
 var convert = function (s, numRows) {
     let returnS = '';
-    for (let i = 0; i < s.length; i += 2 * (numRows - 1)) {
-        for (let j = 0; j < numRows; j++) {
-            returnS += s[i - j];
-            if (s[j]) {
-                returnS += s[j];
+    for (let j = 0; j < numRows; j++) {
+        for (let i = j; i < s.length; i += 2 * (numRows - 1)) {
+            returnS += s[i];
+            if (j !== 0 && j < numRows - 1) {
+                const intermediateIndex = i + 2 * j;
+                if (s[intermediateIndex]) {
+                    returnS += s[intermediateIndex];
+                }
             }
         }
     }
